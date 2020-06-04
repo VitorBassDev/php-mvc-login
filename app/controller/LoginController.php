@@ -11,4 +11,23 @@ class LoginController
 		$template = $twig->load('login.html');
 		return $template->render();
 	}
+
+	public function check(){
+	/**
+	 * Recebe - Email e Senha digitado e enviado pelo formulário
+	 * Aciona o Médotdo validateLogin para validar o login
+	 */
+	
+	 try{
+			$user = new User;
+			$user->setEmail($_POST['email']);
+			$user->setSenha($_POST['senha']);
+			$user->validateLogin();
+			}catch(\Exception $e){
+				header('Location: ../view/login.html');
+	 }
+
+
+
+	}
 }

@@ -1,15 +1,43 @@
 Feitos 
-
+# COMMIT 01
+--> 
 Pesonalização do FronEnd
 Configuração de estrutura MVC: app/controller - model - view
 Configuração do CORE (nucleo/motor)
 Configuração do arquivo .htaccess 
 COnfiguraçao da de rotas da URL amigável
 
--->
-
+# COMMIT 02
+--> 
 Configuração do COMPOSER
 Criação do composer.json
 
 Configuração do Twig
 Criaçao de Rotas com o Twig
+
+
+# COMMIT 03 - Implementação dos aruqivos Banco de Dados / Model User.php / Controller LoginController.php
+
+--> 
+Banco de Dados
+Criação / Configuração / Implementação do db e tabelas
+
+--> 
+MODEL User.php
+  Implementação da MODEL USER-USUARIO
+	(classe que espelha o banco uma tablela do banco de dados) 
+	Implementação dos atributos da classe
+	Implementação de encapsulamento dos atributos e métodos
+	Implementação de validação do login
+    {
+      conectar no banco de dados
+			Validar email e senha informada do ato do login 
+			Selecionar Usuario que tenho o email informado no ato do login
+			Criar Sessão e Fazer e redirecionamento para o Painel Administrativos
+			Tratar Erros
+    }
+	
+LoginController
+    Recebe - Email e Senha digitado e enviado pelo formulário
+	Aciona o Médotdo validateLogin 
+
