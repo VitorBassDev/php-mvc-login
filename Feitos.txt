@@ -1,0 +1,7 @@
+Feitos 
+
+Pesonalização do FronEnd
+Configuração de estrutura MVC: app/controller - model - view
+Configuração do CORE (nucleo/motor)
+Configuração do arquivo .htaccess 
+COnfiguraçao da de rotas da URL amigável
