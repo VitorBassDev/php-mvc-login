@@ -23,11 +23,10 @@ class LoginController
 			$user->setEmail($_POST['email']);
 			$user->setSenha($_POST['senha']);
 			$user->validateLogin();
+			header('Location: http://localhost/login/login02/dashboard');
+
 			}catch(\Exception $e){
-				header('Location: ../view/login.html');
+				header('Location: http://localhost/login/login02/');
 	 }
-
-
-
 	}
 }

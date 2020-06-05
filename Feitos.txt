@@ -16,7 +16,7 @@ Configuração do Twig
 Criaçao de Rotas com o Twig
 
 
-# COMMIT 03 - Implementação dos aruqivos Banco de Dados / Model User.php / Controller LoginController.php
+# COMMIT 03 - Implementação dos arquivos Banco de Dados / Model User.php / Controller LoginController.php
 
 --> 
 Banco de Dados
@@ -28,6 +28,22 @@ MODEL User.php
 	(classe que espelha o banco uma tablela do banco de dados) 
 	Implementação dos atributos da classe
 	Implementação de encapsulamento dos atributos e métodos
+		
+LoginController
+  Recebe - Email e Senha digitado e enviado pelo formulário
+	Aciona o Médotdo validateLogin 
+
+# COMMIT 4
+
+	Criação da Classe de Conexão com o Banco de dados - Connection.php na pasta LIB
+	Implementação da Conexão
+	{
+		Dados do servidor,nome do banco, usuario e senha - Classe User.php
+		Tratar Erros
+	}
+	Criação do DashboardController 
+	Usuario logado irá gerenciar o conteúdo do sistema
+
 	Implementação de validação do login
     {
       conectar no banco de dados
@@ -36,8 +52,7 @@ MODEL User.php
 			Criar Sessão e Fazer e redirecionamento para o Painel Administrativos
 			Tratar Erros
     }
-	
-LoginController
-    Recebe - Email e Senha digitado e enviado pelo formulário
-	Aciona o Médotdo validateLogin 
-
+  Implementação do logout
+    {
+      destruir sessão e redirecionamento
+    }

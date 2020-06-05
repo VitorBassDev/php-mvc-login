@@ -10,9 +10,11 @@ class Core
   private $params = array();
 
 
+  private $user;
   public function __construct()
   {
-    
+    // CHECAR SE EXISTE SESSÃO ATIVA
+    $this->user = $_SESSION['usr'] ?? null;
   }
 
   public function start($request)
@@ -33,12 +35,28 @@ class Core
           $this->params = $this->url;
           }
       }
-
-    } else{
-      
-      $this->controller = 'LoginController';
-      $this->method = 'index'; 
     }
+    // verificar se o usuário está logado
+    if($this->user){
+      $pg_permission = ['DashboardController'];
+
+      if(!isset($this->controller) || !in_array($this->controller, $pg_permission)){
+        $this->controller = 'DashboardController';
+        $this->method = 'index';
+      }
+    } else{
+      $pg_permission = ['LoginController'];
+
+      if(!isset($this->controller) || !in_array($this->controller, $pg_permission)){
+        $this->controller = 'LoginController';
+        $this->method = 'index';
+    }
+  }
+    //} else{
+      
+    //  $this->controller = 'LoginController';
+    //  $this->method = 'index'; 
+    //}
 
     return call_user_func(array(new $this->controller, $this->method), $this->params);
 

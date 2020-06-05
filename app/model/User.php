@@ -7,7 +7,11 @@
 	 * Implementação dos atributos da classe
 	 * Implementação de encapsulamento dos atributos e métodos
 	 * Implementação da validação do login - MÉTODO
+	 * Usar a classe de conexão com banco de dados
 	 */
+
+	use Vitor\Database\Connection;
+
 	class User
 	{
 		private $id;
@@ -24,6 +28,29 @@
 			 * Criar Sessão e Fazer e redirecionamento para o Painel Administrativos
 			 * Tratar Erros 
 			 * */
+			
+			// Conexão com o banco de dados
+			$conn = Connection::getConn();
+			//var_dump($conn);
+
+			// Validar Email - Buscar no banco de dados
+			$sql = 'SELECT * FROM usuario WHERE email = :email';
+			
+			// Executar o script - Conectar ao Banco e Executar o Scrip
+			$stmt = $conn->prepare($sql);
+			$stmt->bindValue(':email', $this->email);
+			$stmt->execute();
+			
+			if($stmt->rowCount()){
+				$result = $stmt->fetch();
+
+				if($result['senha'] === $this->senha){
+					$_SESSION['usr'] = $result['id'];
+					return true;
+				} 
+			}
+			throw new \Exception('Login Inválido');
+
 		}
 
 		public function setEmail($email)
