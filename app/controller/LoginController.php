@@ -9,7 +9,9 @@ class LoginController
 			'auto_reload' => true
 		]);
 		$template = $twig->load('login.html');
-		return $template->render();
+		$paramters['error'] = $_SESSION['msg_error'] ?? null;
+
+		return $template->render($paramters);
 	}
 
 	public function check(){
@@ -26,6 +28,7 @@ class LoginController
 			header('Location: http://localhost/login/login02/dashboard');
 
 			}catch(\Exception $e){
+				$_SESSION['msg_error'] = array ('msg' => $e->getMessage(), 'count' => 0);
 				header('Location: http://localhost/login/login02/');
 	 }
 	}

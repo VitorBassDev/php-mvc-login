@@ -50,7 +50,10 @@
                             	</p>
                             </div>
                             <div class="top-big-link">
-                            	<a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-login">Modal Login</a>
+															<a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-login">Modal Login</a>
+															{% if error != '' %}
+																<span class="msg_error"> Dados Inválidos</span>
+															{% endif %}	
                             </div>
                         </div>
                     </div>
@@ -107,7 +110,8 @@
                                         placeholder="SENHA..." 
                                         class="form-password form-control" id="form-password">
 	                        </div>
-	                        <button type="submit" class="btn">Logar</button>
+													<button type="submit" class="btn">Logar</button>
+													
 	                    </form>
 	                    
         			</div>

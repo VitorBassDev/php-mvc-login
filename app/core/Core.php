@@ -11,10 +11,23 @@ class Core
 
 
   private $user;
+
+  private $error;
+
   public function __construct()
   {
     // CHECAR SE EXISTE SESSÃO ATIVA
     $this->user = $_SESSION['usr'] ?? null;
+
+    $this->error = $_SESSION['msg_error'] ?? null ;
+
+    if(isset($this->error)){
+      if($this->error['count'] === 0){
+        $_SESSION['msg_error']['count'] ++;
+      } else {
+        unset($_SESSION['msg_error']);
+      }
+    }
   }
 
   public function start($request)

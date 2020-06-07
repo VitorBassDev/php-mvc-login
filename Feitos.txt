@@ -56,3 +56,9 @@ LoginController
     {
       destruir sessão e redirecionamento
     }
+
+	# COMMIT 05 - TRTAMENTO DE MENSAGEM DE Erros
+	--> Implementação de mensagem de erro em caso de dados incorretos
+		LoginController{
+			Cria a verificação de errors
+		}
