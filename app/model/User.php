@@ -45,7 +45,10 @@
 				$result = $stmt->fetch();
 
 				if($result['senha'] === $this->senha){
-					$_SESSION['usr'] = $result['id'];
+					$_SESSION['usr'] = array(
+						'id_user' => $result['id'],
+						'name_user' => $result['name']
+					);
 					return true;
 				} 
 			}

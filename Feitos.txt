@@ -57,8 +57,18 @@ LoginController
       destruir sessão e redirecionamento
     }
 
-	# COMMIT 05 - TRTAMENTO DE MENSAGEM DE Erros
+# COMMIT 05 - TRTAMENTO DE MENSAGEM DE Erros
 	--> Implementação de mensagem de erro em caso de dados incorretos
 		LoginController{
 			Cria a verificação de errors
 		}
+
+# COMMIT 07
+
+--> Isolar o HTML do php
+	{
+		Configuração de apontamento - após usuario logado
+		Criação da View dashboard.html	
+		Configuração da ControllerDashboard
+	}
+
